@@ -1,0 +1,5 @@
+npm install react-admin
+yarn create react-app test-admin
+cd test-admin/
+yarn add react-admin ra-data-json-server prop-types
+yarn start
