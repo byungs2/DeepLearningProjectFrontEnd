@@ -1,16 +1,14 @@
 import * as React from "react";
-import { Filter, TextInput, ReferenceInput, SelectInput, ImageField, List, Datagrid, TextField, EmailField, UrlField } from 'react-admin';
+import {Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput, ImageField, List, Datagrid, TextField, ImageInput,SimpleForm,Edit } from 'react-admin';
 
 export const testDataShow = props => (
-<List filters={<TestFilter />} {...props}>
+    <List {...props}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
-            <TextField source="name" />
-            <EmailField source="email" />
-            <TextField source="phone" />
-            <UrlField source="website" />
-            <TextField source="company.name" />
-            <ImageField source="pictures" title="desc" />
+            <TextField source="memberName" />
+            <TextField source="memberCount" />
+            <ImageField source="memberFace" />
+            <EditButton/>
         </Datagrid>
     </List>
 );
@@ -21,4 +19,25 @@ export const TestFilter = (props) => (
             <SelectInput optionText="name" />
         </ReferenceInput>
     </Filter>
+);
+export const TestEdit = props => (
+    <Edit {...props}>
+        <SimpleForm>
+           <TextInput disabled source="id" />
+           <TextInput source="memberName" />
+           <TextInput multiline source="memberCount" />
+           <ImageInput source="memberFace" />
+        </SimpleForm>
+    </Edit>
+);
+export const TestCreate = props => (
+    <Create {...props}>
+        <SimpleForm>
+           <TextInput source="memberName" />
+           <TextInput multiline source="memberCount" />
+           <ImageInput source="memberFace" accept="image/*">
+                <ImageField source="src" title="title" />
+            </ImageInput>
+        </SimpleForm>
+    </Create>
 );
