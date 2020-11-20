@@ -1,5 +1,6 @@
 import * as React from "react";
-import {Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput, ImageField, List, Datagrid, TextField, ImageInput,SimpleForm,Edit } from 'react-admin';
+import {FileInput ,Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput, ImageField, List, Datagrid, TextField, ImageInput,SimpleForm,Edit } from 'react-admin';
+
 
 export const testDataShow = props => (
     <List {...props}>
@@ -33,10 +34,10 @@ export const TestEdit = props => (
 export const TestCreate = props => (
     <Create {...props}>
         <SimpleForm>
-           <TextInput source="memberName" />
-           <TextInput multiline source="memberCount" />
-           <ImageInput source="memberFace" accept="image/*">
-                <ImageField source="src" title="title" />
+            <TextInput source="memberName" />
+            <TextInput multiline = {false} source="memberCount" />
+            <ImageInput source="memberFace" maxSize = {800000} accept = "image/*" multiple = {false} >
+                <ImageField src = "src" source="memberFace"/>
             </ImageInput>
         </SimpleForm>
     </Create>

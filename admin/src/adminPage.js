@@ -6,6 +6,7 @@ import jsonServerProvider from 'ra-data-json-server';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
 import {TestCreate, TestEdit, testDataShow} from './testData';
+import dataProv from './dataProv';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -16,8 +17,8 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 //const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
-const dataProvider = jsonServerProvider('http://localhost:8082');
-
+//const dataProvider = jsonServerProvider('http://localhost:8082');
+const dataProvider = dataProv;
 export const adminPage = () => (
     <Admin dashboard={Dashboard} authProvider={authProvider} dataProvider={dataProvider}>
         <Resource name="posts" list={PostList} edit={PostEdit} create = {PostCreate} />
