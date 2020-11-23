@@ -1,6 +1,6 @@
 import { fetchUtils } from "react-admin";
-import jsonServerProvider from 'ra-data-json-server';
-
+//import jsonServerProvider from 'ra-data-json-server';
+import jsonServerProvider from "./basicStructureOfProvider";
 const servicesHost = 'http://localhost:8082';
 
 const httpClient = (url, options = {}) => {
@@ -14,16 +14,16 @@ const httpClient = (url, options = {}) => {
 const dataProvider = jsonServerProvider(servicesHost, httpClient);
 
 const dataProv = {
-    ...dataProvider,
+    ...dataProvider, //확산연산자
     create: (resource, params) => {
         if (resource === 'member') {
             const formData = new FormData();
-            const myFile = new File([params.data.memberFace.memberFace],"memberFace",{ type: params.data.memberFace.memberFace.type});
+            const myFile = new File([params.data.memberFace.rawFile],params.data.memberFace.rawFile.name,{ type: params.data.memberFace.rawFile.type});
             formData.append('memberFace',myFile);
             formData.append('memberName', params.data.memberName);
             formData.append('memberCount',params.data.memberCount);
 
-            return fetch('http://localhost:8082/member', {
+            return fetch(servicesHost+'/'+resource, {
                 method: 'post',
                 body: formData,
             })
@@ -33,8 +33,7 @@ const dataProv = {
                     picture,
                 }));
         }
-    
-        return dataProvider.create(resource, params.id, { ...params.data });
+        return dataProvider.create(resource, params);
     },
 };
 
