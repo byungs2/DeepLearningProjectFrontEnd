@@ -123,11 +123,11 @@ export default (function (apiUrl, httpClient) {
         create: function (resource, params) {
             return httpClient(apiUrl + "/" + resource, {
                 method: 'POST',
-                body: JSON.stringify(params.data),
+                body: JSON.stringify(params),
             }).then(function (_a) {
                 var json = _a.json;
                 return ({
-                    data: __assign(__assign({}, params.data), { id: json.id }),
+                    data: __assign(__assign({}, params), { id: json.id }),
                 });
             });
         },

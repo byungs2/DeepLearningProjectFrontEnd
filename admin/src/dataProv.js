@@ -22,16 +22,13 @@ const dataProv = {
             formData.append('memberFace',myFile);
             formData.append('memberName', params.data.memberName);
             formData.append('memberCount',params.data.memberCount);
-
+            
             return fetch(servicesHost+'/'+resource, {
                 method: 'post',
                 body: formData,
             })
-                .then(response => response.json())
-                .then(picture => dataProvider.create(resource, params.id, {
-                    ...params.data,
-                    picture,
-                }));
+                .then(response => response.json(),console.log(" ------ new data prov ------- "))
+                .then(member => dataProvider.create(resource, member));
         }
         return dataProvider.create(resource, params);
     },
