@@ -102,7 +102,7 @@ export default (function (apiUrl, httpClient) {
         update: function (resource, params) {
             return httpClient(apiUrl + "/" + resource + "/" + params.id, {
                 method: 'PUT',
-                body: JSON.stringify(params.data),
+                body: JSON.stringify(params),
             }).then(function (_a) {
                 var json = _a.json;
                 return ({ data: json });

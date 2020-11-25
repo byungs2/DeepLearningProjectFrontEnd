@@ -3,7 +3,7 @@ import {Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput, Imag
 // ReferenceField의 source는 forignkey, reference는 참조할 테이블 명시하는 것
 
 
-export const testDataShow = props => (
+export const MemberList = props => (
     <List {...props}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
@@ -14,7 +14,7 @@ export const testDataShow = props => (
         </Datagrid>
     </List>
 );
-export const TestFilter = (props) => (
+export const MemberFilter = (props) => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
         <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
@@ -22,20 +22,20 @@ export const TestFilter = (props) => (
         </ReferenceInput>
     </Filter>
 );
-export const TestEdit = props => (
-    <Edit {...props}>
+export const MemberEdit = props => (
+    <Edit {...props} undoable = {false} >
         <SimpleForm>
             <TextInput disabled source="id" />
             <TextInput source="memberName" />
             <TextInput multiline disabled source="memberCount" />
             <ImageField source="memberFace" />
             <ImageInput source="updateMemberFace" maxSize = {800000} accept = "image/*" multiple = {false} >
-                <ImageField src = "src" source="updateMemberFace"/>
+                <ImageField src = "src" source="updateMemberFace" />
             </ImageInput>
         </SimpleForm>
     </Edit>
 );
-export const TestCreate = props => (
+export const MemberCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="memberName" />
