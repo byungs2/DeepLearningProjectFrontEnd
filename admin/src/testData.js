@@ -27,7 +27,7 @@ export const TestEdit = props => (
         <SimpleForm>
             <TextInput disabled source="id" />
             <TextInput source="memberName" />
-            <TextInput multiline source="memberCount" />
+            <TextInput multiline disabled source="memberCount" />
             <ImageField source="memberFace" />
             <ImageInput source="updateMemberFace" maxSize = {800000} accept = "image/*" multiple = {false} >
                 <ImageField src = "src" source="updateMemberFace"/>

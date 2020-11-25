@@ -27,7 +27,7 @@ const dataProv = {
                 method: 'post',
                 body: formData,
             })
-                .then(response => response.json(),console.log(" ------ new data prov ------- "))
+                .then(response => response.json())
                 .then(member => dataProvider.create(resource, member));
         }
         return dataProvider.create(resource, params);

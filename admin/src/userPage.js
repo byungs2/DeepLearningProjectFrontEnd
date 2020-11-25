@@ -159,13 +159,15 @@ function calculateWinner(squares) {
   }
   return [null,null];
 }
-class userPage extends React.Component {
-  render(){
-    return (
-      <Game rowValue = {3} colValue = {3}/>
-    )
-  }
-}
-
+// class userPage extends React.Component {
+//   render(){
+//     return (
+//       <Game rowValue = {3} colValue = {3}/>
+//     )
+//   }
+// }
+export const userPage = () => (
+  <Game rowValue = {3} colValue = {3}/>
+)
 
 export default userPage;
