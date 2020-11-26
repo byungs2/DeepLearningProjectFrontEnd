@@ -14,14 +14,7 @@ export const MemberList = props => (
         </Datagrid>
     </List>
 );
-// export const MemberFilter = (props) => (
-//     <Filter {...props}>
-//         <TextInput label="Search" source="q" alwaysOn />
-//         <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
-//             <SelectInput optionText="name" />
-//         </ReferenceInput>
-//     </Filter>
-// );
+
 export const MemberEdit = props => (
     <Edit {...props} undoable = {false} >
         <SimpleForm>
@@ -35,6 +28,7 @@ export const MemberEdit = props => (
         </SimpleForm>
     </Edit>
 );
+
 export const MemberCreate = props => (
     <Create {...props}>
         <SimpleForm>
