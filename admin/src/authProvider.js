@@ -1,13 +1,28 @@
+
 export default {
     // called when the user attempts to log in
     login: ({ username, password }) => {
-        if(username === "byungs2" && password === '1'){
+        if('byungs2' === username && '1' === password ){
             localStorage.setItem('username', username);
             // accept all username/password combinations
             return Promise.resolve();
         }else{
             return Promise.reject();
         }
+        
+        // 알수없는 에러로 잠시 백단과 연결 보류중
+        // const servicesHost = 'http://localhost:8082';
+        // fetch(servicesHost + '/login/' + username,{
+        //     method : 'get'
+        // }).then(function(res){
+        //     if(res.adminId === username && res.adminPw === password ){
+        //         localStorage.setItem('username', username);
+        //         // accept all username/password combinations
+        //         return Promise.resolve();
+        //     }else{
+        //         return Promise.reject();
+        //     }
+        // })
     }, 
     // called when the user clicks on the logout button
     logout: () => {

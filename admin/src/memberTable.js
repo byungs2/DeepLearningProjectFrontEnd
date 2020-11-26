@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput, ImageField, List, Datagrid, TextField, ImageInput,SimpleForm,Edit } from 'react-admin';
+import {Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput, ImageField, List, Datagrid, TextField, ImageInput,SimpleForm,Edit, DeleteButton } from 'react-admin';
 // ReferenceField의 source는 forignkey, reference는 참조할 테이블 명시하는 것
 
 
@@ -14,14 +14,14 @@ export const MemberList = props => (
         </Datagrid>
     </List>
 );
-export const MemberFilter = (props) => (
-    <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
-        <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
-            <SelectInput optionText="name" />
-        </ReferenceInput>
-    </Filter>
-);
+// export const MemberFilter = (props) => (
+//     <Filter {...props}>
+//         <TextInput label="Search" source="q" alwaysOn />
+//         <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+//             <SelectInput optionText="name" />
+//         </ReferenceInput>
+//     </Filter>
+// );
 export const MemberEdit = props => (
     <Edit {...props} undoable = {false} >
         <SimpleForm>
