@@ -1,28 +1,33 @@
+import { fetchUtils } from 'ra-core';
 
 export default {
     // called when the user attempts to log in
     login: ({ username, password }) => {
-        if('byungs2' === username && '1' === password ){
+        if('master' === username && 'master' === password ){
             localStorage.setItem('username', username);
             // accept all username/password combinations
             return Promise.resolve();
         }else{
-            return Promise.reject();
+            const httpClient = fetchUtils.fetchJson;
+            const formData = new FormData();
+            formData.append('username', username);
+            formData.append('password', password);
+            const servicesHost = 'http://localhost:8082';
+            return httpClient(servicesHost + '/login',{
+                method : 'post',
+                body : JSON.stringify({"username" : username})
+            })
+            .then(function(res){
+                const json = res.json;
+                if(json.adminId === username && json.adminPw === password ){
+                    localStorage.setItem('username', username);
+                    // accept all username/password combinations
+                    return Promise.resolve();
+                }else{
+                    return Promise.reject();
+                }
+            })
         }
-        
-        // 알수없는 에러로 잠시 백단과 연결 보류중
-        // const servicesHost = 'http://localhost:8082';
-        // fetch(servicesHost + '/login/' + username,{
-        //     method : 'get'
-        // }).then(function(res){
-        //     if(res.adminId === username && res.adminPw === password ){
-        //         localStorage.setItem('username', username);
-        //         // accept all username/password combinations
-        //         return Promise.resolve();
-        //     }else{
-        //         return Promise.reject();
-        //     }
-        // })
     }, 
     // called when the user clicks on the logout button
     logout: () => {

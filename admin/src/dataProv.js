@@ -36,15 +36,13 @@ const dataProv = {
         if (resource === 'member') {
             const formData = new FormData();
             if(!params.data.updateMemberFace){
-                console.log("======donthavepicture=====");
+                console.log("====== Picture Not Found =====");
             }else{
-                console.log("====havepicture=====");
                 const myFile = new File([params.data.updateMemberFace.rawFile],params.data.updateMemberFace.rawFile.name,{ type: params.data.updateMemberFace.rawFile.type});
                 formData.append('updateMemberFace',myFile);
             }
             formData.append('memberName', params.data.memberName);
             formData.append('memberCount',params.data.memberCount);
-            console.log("====before Request =====");
             return fetch(servicesHost+'/'+resource +'/' + params.id, {
                 method: 'put',
                 body: formData,
