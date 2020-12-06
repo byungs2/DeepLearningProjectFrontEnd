@@ -8,6 +8,7 @@ export const AdminList = props => (
         <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="adminId" />
+            <TextField source="adminPhoneNum" />
             <EditButton/>
         </Datagrid>
     </List>
@@ -17,6 +18,7 @@ export const AdminEdit = props => (
         <SimpleForm>
             <TextInput disabled source="id" />
             <TextInput source="adminId" />
+            <TextInput source="adminPhoneNum" />
             <PasswordInput source="existingPw" />
             <PasswordInput source="adminPw" />
         </SimpleForm>
@@ -26,6 +28,7 @@ export const AdminCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="adminId" />
+            <TextInput source="adminPhoneNum" />
             <PasswordInput source="adminPw" />
         </SimpleForm>
     </Create>
