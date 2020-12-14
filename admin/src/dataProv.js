@@ -19,6 +19,8 @@ const dataProv = {
         if (resource === 'member') {
             const formData = new FormData();
             const myFile = new File([params.data.memberFace.rawFile],params.data.memberFace.rawFile.name,{ type: params.data.memberFace.rawFile.type});
+            formData.append('memberPw',params.data.memberPw);
+            formData.append('memberId',params.data.memberId);
             formData.append('memberFace',myFile);
             formData.append('memberName', params.data.memberName);
             formData.append('memberCount',params.data.memberCount);
@@ -41,6 +43,8 @@ const dataProv = {
                 const myFile = new File([params.data.updateMemberFace.rawFile],params.data.updateMemberFace.rawFile.name,{ type: params.data.updateMemberFace.rawFile.type});
                 formData.append('updateMemberFace',myFile);
             }
+            formData.append('memberPw',params.data.memberPw);
+            formData.append('memberId',params.data.memberId);
             formData.append('memberName', params.data.memberName);
             formData.append('memberCount',params.data.memberCount);
             return fetch(servicesHost+'/'+resource +'/' + params.id, {
