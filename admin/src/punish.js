@@ -6,7 +6,7 @@ export const UsersList = ({ groupNameFilter, ...props }) => {
 
     return (
         <React.Fragment>
-            <List {...props} bulkActionButtons={false} perPage = {2} pagination = {false}>
+            <List {...props} bulkActionButtons={false} sort={{ field: 'memberCount', order: 'DESC' }} perPage = {2} pagination = {false}>
                 <Datagrid>
                     <ImageField source="memberFace"/>
                 </Datagrid>
