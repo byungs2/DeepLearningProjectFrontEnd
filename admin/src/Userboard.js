@@ -21,8 +21,9 @@ const useStyles = makeStyles({
     },
 
     font: {
+        marginLeft: 100,
         fontFamily: 'Sansita Swashed',
-        textAlign: "center",
+        // textAlign: "center",
         fontSize: "40px",
         backgroundSize: "20%"
     }
@@ -37,8 +38,9 @@ export default function Userboard() {
             <Card>
                 <CardHeader/>
                 <h1 className={classes.font}>🎅Playdata🎅</h1>
-                <CardContent className={classes.content}><Resource name="member" list={Lout}/></CardContent>
-
+                <CardContent className={classes.content}>
+                    <Resource name="member" list={Lout}/>
+                </CardContent>
             </Card>
         </div>
     );

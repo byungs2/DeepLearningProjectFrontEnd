@@ -6,7 +6,7 @@ export const UsersList = ({ groupNameFilter, ...props }) => {
 
     return (
         <React.Fragment>
-            <List {...props}>
+            <List {...props} bulkActionButtons={false} perPage = {2} pagination = {false}>
                 <Datagrid>
                     <ImageField source="memberFace"/>
                 </Datagrid>
