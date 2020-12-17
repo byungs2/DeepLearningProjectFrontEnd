@@ -39,10 +39,10 @@ export const UserList = props => {
         <React.Fragment>
             <List {...props} filters={<PostFilter/>} sort={{ field: 'memberCount', order: 'DESC' }} bulkActionButtons = {false}>
                 <Datagrid style={{fontFamily: 'Do Hyeon'}}>
-                    <TextField source="id"/>
+                    <TextField source="id" sortable = {false}/>
                     <TextField source="memberId" sortable = {false}/>
                     <TextField source="memberName" sortable = {false}/>
-                    <TextField source="memberCount"/>
+                    <TextField source="memberCount" sortable = {false}/>
                     {/* <ImageField source="memberFace" /> */}
                 </Datagrid>
             </List>

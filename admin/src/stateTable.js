@@ -1,10 +1,14 @@
 import * as React from "react";
-import {ImageField,ReferenceField, Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput,List, Datagrid, TextField, SimpleForm,Edit} from 'react-admin';
+import {SearchInput, ImageField,ReferenceField, Create, EditButton, Filter, TextInput, ReferenceInput, SelectInput,List, Datagrid, TextField, SimpleForm,Edit} from 'react-admin';
 // ReferenceField의 source는 forignkey, reference는 참조할 테이블 명시하는 것
-
+const PostFilter = props => (
+    <Filter {...props}>
+        <SearchInput source="q" alwaysOn/>
+    </Filter>
+);
 
 export const StateList = props => (
-    <List {...props}>
+    <List {...props} filters={<PostFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
             <ReferenceField label="MemberId" source="MemberId" reference="member" sortable = {false}>
