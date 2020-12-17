@@ -8,7 +8,7 @@ export const UsersList = ({ groupNameFilter, ...props }) => {
         <React.Fragment>
             <List {...props} bulkActionButtons={false} sort={{ field: 'memberCount', order: 'DESC' }} perPage = {2} pagination = {false}>
                 <Datagrid>
-                    <ImageField source="memberFace"/>
+                    <ImageField source="memberFace" sortable = {false}/>
                 </Datagrid>
             </List>
         </React.Fragment>

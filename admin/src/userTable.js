@@ -40,8 +40,8 @@ export const UserList = props => {
             <List {...props} filters={<PostFilter/>} sort={{ field: 'memberCount', order: 'DESC' }} bulkActionButtons = {false}>
                 <Datagrid style={{fontFamily: 'Do Hyeon'}}>
                     <TextField source="id"/>
-                    <TextField source="memberId"/>
-                    <TextField source="memberName"/>
+                    <TextField source="memberId" sortable = {false}/>
+                    <TextField source="memberName" sortable = {false}/>
                     <TextField source="memberCount"/>
                     {/* <ImageField source="memberFace" /> */}
                 </Datagrid>

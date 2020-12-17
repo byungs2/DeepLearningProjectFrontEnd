@@ -7,14 +7,14 @@ export const StateList = props => (
     <List {...props}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
-            <ReferenceField label="MemberId" source="MemberId" reference="member">
+            <ReferenceField label="MemberId" source="MemberId" reference="member" sortable = {false}>
                 <TextField source = "id" />
             </ReferenceField>
-            <ReferenceField label="MemberName" source="MemberId" reference="member">
+            <ReferenceField label="MemberName" source="MemberId" reference="member" sortable = {false}>
                 <TextField source = "memberName" />
             </ReferenceField>
-            <TextField source="stateNote" />
-            <TextField source="stateTime" />
+            <TextField source="stateNote" sortable = {false}/>
+            <TextField source="stateTime" sortable = {false}/>
             <EditButton/>
         </Datagrid>
     </List>

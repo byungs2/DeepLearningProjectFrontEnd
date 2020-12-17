@@ -7,8 +7,8 @@ export const AdminList = props => (
     <List {...props}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
-            <TextField source="adminId" />
-            <TextField source="adminPhoneNum" />
+            <TextField source="adminId" sortable = {false} />
+            <TextField source="adminPhoneNum" sortable = {false} />
             <EditButton/>
         </Datagrid>
     </List>
