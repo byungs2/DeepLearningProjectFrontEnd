@@ -37,12 +37,12 @@ const PostFilter = props => (
 export const UserList = props => {
     return (
         <React.Fragment>
-            <List {...props} filters={<PostFilter/>} sort={{ field: 'memberCount', order: 'DESC' }} bulkActionButtons = {false}>
+            <List {...props} filters={<PostFilter/>} sort={{ field: 'memberCount', order: 'DESC' }} bulkActionButtons = {false} exporter = {false}>
                 <Datagrid style={{fontFamily: 'Do Hyeon'}}>
-                    <TextField source="id" sortable = {false}/>
-                    <TextField source="memberId" sortable = {false}/>
-                    <TextField source="memberName" sortable = {false}/>
-                    <TextField source="memberCount" sortable = {false}/>
+                    <TextField source="id" sortable = {false} label = "번호" />
+                    <TextField source="memberId" sortable = {false} label = "아이디"/>
+                    <TextField source="memberName" sortable = {false} label = "이름"/>
+                    <TextField source="memberCount" sortable = {false} label = "벌점"/>
                     {/* <ImageField source="memberFace" /> */}
                 </Datagrid>
             </List>

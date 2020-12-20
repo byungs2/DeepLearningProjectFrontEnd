@@ -8,11 +8,11 @@ const PostFilter = props => (
 );
 
 export const AdminList = props => (
-    <List {...props} filters={<PostFilter/>}>
+    <List {...props} filters={<PostFilter/>} exporter={false}>
         <Datagrid rowClick="edit">
-            <TextField source="id" />
-            <TextField source="adminId" sortable = {false} />
-            <TextField source="adminPhoneNum" sortable = {false} />
+            <TextField source="id" label = "번호" />
+            <TextField source="adminId" sortable = {false} label = "관리자 아이디"/>
+            <TextField source="adminPhoneNum" sortable = {false} label = "전화번호"/>
             <EditButton/>
         </Datagrid>
     </List>

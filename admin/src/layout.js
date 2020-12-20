@@ -18,38 +18,29 @@ WebFont.load({
 const useStyles = makeStyles((theme) => ({
 
         root: {
-            marginLeft: 50,
+            marginLeft:  30,
             marginRight: 30,
-            alignSelf: "center"
-
-        },
-        demo: {
-            // marginLeft: 450,
-            marginRight: 30,
-            alignSelf: "center"
-
+            alignSelf: "center",
         },
         title: {
             fontFamily: 'Do Hyeon'
 
         }
 
-    }))
-;
+    }));
 
 export default function MultipleList() {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-
-            <Grid container className={classes.root}>
-                <Grid item xs={4} md={3} className={classes.memo}>
+            <Grid container>
+                <Grid item xs={12}>
                     <Typography variant="h5" className={classes.title}>
                         최고 벌점자
                     </Typography>
-                    <div className={classes.demo} spacing={20}>
-                        <Resource name="member" list={UsersList}/>
+                    <div>
+                        <Resource name="member" list={UsersList} options={{ label: 'DUSASAE' }}/> {/* 벌점자 누적 상위 3명 */}
                     </div>
                 </Grid>
 

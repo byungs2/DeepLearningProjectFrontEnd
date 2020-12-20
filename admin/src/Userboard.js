@@ -15,30 +15,23 @@ WebFont.load({
 });
 
 const useStyles = makeStyles({
-    root: {},
-    media: {
-        height: 140,
-    },
-
     font: {
         marginLeft: 100,
         fontFamily: 'Sansita Swashed',
-        // textAlign: "center",
+        textAlign: "center",
         fontSize: "40px",
         backgroundSize: "20%"
-    }
-
+    },
 });
 
 export default function Userboard() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-
+        <div>
             <Card>
                 <CardHeader/>
                 <h1 className={classes.font}>🎅Playdata🎅</h1>
-                <CardContent className={classes.content}>
+                <CardContent>
                     <Resource name="member" list={Lout}/>
                 </CardContent>
             </Card>

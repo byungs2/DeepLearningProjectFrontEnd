@@ -8,17 +8,17 @@ const PostFilter = props => (
 );
 
 export const StateList = props => (
-    <List {...props} filters={<PostFilter/>}>
+    <List {...props} filters={<PostFilter/>} exporter={false}>
         <Datagrid rowClick="edit">
-            <TextField source="id" />
-            <ReferenceField label="MemberId" source="MemberId" reference="member" sortable = {false}>
+            <TextField source="id" label = "번호" />
+            <ReferenceField label="MemberId" source="MemberId" reference="member" sortable = {false} label = "멤버 번호">
                 <TextField source = "id" />
             </ReferenceField>
-            <ReferenceField label="MemberName" source="MemberId" reference="member" sortable = {false}>
+            <ReferenceField label="MemberName" source="MemberId" reference="member" sortable = {false} label = "멤버 이름">
                 <TextField source = "memberName" />
             </ReferenceField>
-            <TextField source="stateNote" sortable = {false}/>
-            <TextField source="stateTime" sortable = {false}/>
+            <TextField source="stateNote" sortable = {false} label = "비고"/>
+            <TextField source="stateTime" sortable = {false} label = "생성시간"/>
             <EditButton/>
         </Datagrid>
     </List>

@@ -8,13 +8,13 @@ const PostFilter = props => (
 );
 
 export const MemberList = props => (
-<List {...props} filters={<PostFilter/>}>
+<List {...props} filters={<PostFilter/>} exporter={false} >
         <Datagrid rowClick="edit">
-            <TextField source="id" />
-            <TextField source="memberId" sortable = {false}/>
-            <TextField source="memberName" sortable = {false}/>
-            <TextField source="memberCount" />
-            <ImageField source="memberFace" sortable = {false}/>
+            <TextField source="id" label = "번호"/>
+            <TextField source="memberId" sortable = {false} label = "아이디"/>
+            <TextField source="memberName" sortable = {false} label = "이름"/>
+            <TextField source="memberCount" label = "벌점"/>
+            <ImageField source="memberFace" sortable = {false} label = "사진"/>
             <EditButton/>
         </Datagrid>
     </List>
