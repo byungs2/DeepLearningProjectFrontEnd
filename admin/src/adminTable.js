@@ -8,7 +8,7 @@ const PostFilter = props => (
 );
 
 export const AdminList = props => (
-    <List {...props} filters={<PostFilter/>} exporter={false}>
+    <List {...props} filters={<PostFilter/>} exporter={false} bulkActionButtons = {false}>
         <Datagrid rowClick="edit">
             <TextField source="id" label = "번호" />
             <TextField source="adminId" sortable = {false} label = "관리자 아이디"/>
