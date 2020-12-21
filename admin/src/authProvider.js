@@ -38,9 +38,21 @@ export default {
     },
     // called when the user navigates to a new location, to check for authentication
     checkAuth: () => {
-        return localStorage.getItem('username')
-            ? Promise.resolve()
-            : Promise.reject();
+        const auth = localStorage.getItem('username');
+        const servicesHost = 'http://localhost:8082';
+        const httpClient = fetchUtils.fetchJson;
+        return httpClient(servicesHost+'/admin',{
+            method : 'get',
+        }).then(function(res){
+            const json = res.json;
+            for(let i = 0 ; i < json.length; i++){
+                if(json[i].adminId === auth){
+                    return Promise.resolve();
+                }
+            }
+            localStorage.removeItem('username');
+            return Promise.reject();
+        })
     },
     // called when the user navigates to a new location, to check for permissions / roles
     getPermissions: () => Promise.resolve(),
