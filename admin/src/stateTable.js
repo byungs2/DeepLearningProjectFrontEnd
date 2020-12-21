@@ -19,6 +19,7 @@ export const StateList = props => (
             </ReferenceField>
             <TextField source="stateNote" sortable = {false} label = "비고"/>
             <TextField source="stateTime" sortable = {false} label = "생성시간"/>
+            <ImageField source="stateFace" sortable = {false} label = "적발 사진"/>
             <EditButton/>
         </Datagrid>
     </List>
@@ -35,6 +36,7 @@ export const StateEdit = props => (
             <ReferenceField label="MemberFace" source="MemberId" reference="member">
                 <ImageField source = "memberFace" />
             </ReferenceField>
+            <ImageField source="stateFace"/>
             <TextInput disabled source="id" />
             <TextInput source="stateNote" />
         </SimpleForm>
